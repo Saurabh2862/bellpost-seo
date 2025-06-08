@@ -1,12 +1,26 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { bells } from "../../data/bells";
 import { slugify } from "../../lib/slugify";
 
 export default function BellPage() {
-  const { query } = useRouter();
-  const bell = bells.find(b => slugify(b.title) === query.slug);
+  const { query, isReady } = useRouter();
+  const [fullUrl, setFullUrl] = useState("");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const origin = window.location.origin;
+      const slug = query.slug;
+      if (origin && slug) {
+        setFullUrl(`${origin}/bells/${slug}`);
+      }
+    }
+  }, [query]);
+
+  if (!isReady) return null;
+
+  const bell = bells.find(b => slugify(b.title) === query.slug);
   if (!bell) return <p>Bell not found</p>;
 
   const jsonLd = {
@@ -14,12 +28,12 @@ export default function BellPage() {
     "@type": "ImageObject",
     name: bell.title,
     description: bell.description,
-    contentUrl: `https://example.com/bells/${slugify(bell.title)}`,
+    contentUrl: fullUrl,
     thumbnail: {
       "@type": "ImageObject",
       url: bell.imageUrl
     },
-    url: `https://example.com/bells/${slugify(bell.title)}`,
+    url: fullUrl,
     inLanguage: "en"
   };
 
@@ -28,10 +42,12 @@ export default function BellPage() {
       <Head>
         <title>{bell.title}</title>
         <meta name="description" content={bell.description} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {fullUrl && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+        )}
       </Head>
       <main style={{ padding: 32 }}>
         <h1>{bell.title}</h1>
