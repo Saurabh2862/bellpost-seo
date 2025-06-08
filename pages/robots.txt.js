@@ -4,7 +4,6 @@ export async function getServerSideProps({ res }) {
   Allow: /
   Sitemap: https://bellpost-seo.vercel.app/sitemap_bellpost.xml`);
     res.end();
-  
     return { props: {} };
   }
   
