@@ -34,17 +34,17 @@ export default function BellPage() {
     image: bell.imageUrl,
     author: {
       "@type": "Organization",
-      name: "Bellpost"
+      name: "Saurabh"
     },
     publisher: {
       "@type": "Organization",
-      name: "Bellpost",
+      name: "Saurabh",
       logo: {
         "@type": "ImageObject",
-        url: "https://saurabh2862.github.io/Saurabh_personal_Portfolio/assets/images/my_dp.jpg" // Replace with your actual logo
+        url: "https://mediadev.mortars.in/I/B/I2/I_B_I2_a_7v_h7paolw9rc.png" // Replace with your actual logo
       }
     },
-    datePublished: "2025-06-08", // Optional: make dynamic later
+    datePublished: new Date("2025-06-08").toISOString(),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": fullUrl
