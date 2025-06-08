@@ -41,7 +41,7 @@ export default function BellPage() {
       name: "Saurabh",
       logo: {
         "@type": "ImageObject",
-        url: "https://mediadev.mortars.in/I/B/I2/I_B_I2_a_7v_h7paolw9rc.png" // Replace with your actual logo
+        url: "https://mediadev.mortars.in/I/B/I2/I_B_I2_a_7v_h7paolw9rc.png"
       }
     },
     datePublished: new Date("2025-06-08").toISOString(),
