@@ -28,5 +28,11 @@ export const bells = [
     title: "Elegant Living Room with Modern Art and Plush Seating",
     description: "Explore a sophisticated living room featuring modern abstract art, plush white sofas, sleek black coffee table, and gold accents for a luxurious feel.",
     imageUrl: "https://mediadev.mortars.in/I/B/I2/I_B_I2_a_7v_h7paolw9hp.png"
+  },
+  {
+    id: "6",
+    title: "Bohemian Home Office with Bold Wallpaper",
+    description: "Vibrant home office features a teal desk, orange chair, and lush plants. Bold floral wallpaper creates a creative, bohemian atmosphere for inspiration.",
+    imageUrl: "https://mediadev.mortars.in/I/B/I2/I_B_I2_a_7v_h7paolw9j9.png"
   }
 ];
