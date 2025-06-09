@@ -1,7 +1,6 @@
 import { bells } from "../../data/bells";
 import { slugify } from "../../lib/slugify";
 
-
 const SITE_URL = "https://bellpost-seo.vercel.app";
 
 export async function GET() {
@@ -9,14 +8,13 @@ export async function GET() {
 
   const urls = bells.map((bell) => {
     const slug = slugify(bell.title);
-    return `
-  <url>
+    return `  <url>
     <loc>${SITE_URL}/bells/${slug}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>`;
-  }).join("");
+  }).join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset 
@@ -25,7 +23,7 @@ export async function GET() {
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
                       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${urls}
-</urlset>`.trim();
+</urlset>`;
 
   return new Response(xml, {
     headers: {
