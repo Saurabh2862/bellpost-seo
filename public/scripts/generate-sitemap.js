@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const { bells } = require("../data/bells");
-const { slugify } = require("../lib/slugify");
+const { bells } = require("../../data/bells");
+const { slugify } = require("../../lib/slugify");
 
 const SITE_URL = "https://bellpost-seo.vercel.app";
 const now = new Date().toISOString();
