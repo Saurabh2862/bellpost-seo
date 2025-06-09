@@ -22,5 +22,6 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${sitemapEntries}
 </urlset>`;
 
-fs.writeFileSync(path.join(__dirname, "../public/sitemap.xml"), xml.trim());
+fs.writeFileSync(path.resolve("public", "sitemap.xml"), xml.trim());
+
 console.log("✅ Sitemap written to /public/sitemap.xml");
